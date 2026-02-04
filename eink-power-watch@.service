@@ -1,0 +1,13 @@
+[Unit]
+Description=E-ink pictures: shutdown when external power is disconnected (%i)
+After=multi-user.target
+
+[Service]
+Type=simple
+User=%i
+ExecStart=/usr/bin/python3 /home/%i/eink_pictures/watch_power.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

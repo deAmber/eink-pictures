@@ -1,0 +1,7 @@
+{
+  "images_dir": "~/pictures",
+  "order": "random",
+  "low_threshold":  3.2,
+  "plugged_in_threshold": 4.7,
+  "last_image": null
+}

@@ -1,0 +1,6 @@
+# Photo frame: ON for 2 minutes, OFF for 28 minutes
+BEGIN 2026-01-01 00:00:00
+END   2126-01-01 00:00:00
+
+ON  M2 WAIT # run_cycle.sh handles shutdown
+OFF H5 M58

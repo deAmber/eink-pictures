@@ -1,0 +1,12 @@
+[Unit]
+Description=E-ink pictures: show image at boot (%i)
+After=local-fs.target
+
+[Service]
+Type=oneshot
+User=%i
+WorkingDirectory=/home/%i/eink_pictures
+ExecStart=/home/%i/eink_pictures/run_cycle.sh
+
+[Install]
+WantedBy=multi-user.target
