@@ -41,10 +41,12 @@ print("1" if (v is not None and v >= plug_th) else "0")
 PY
 )
 
+# If plugged in start the watcher to wait for being unplugged
 if [ "$PLUGGED" = "1" ]; then
   echo "External power detected (by voltage). Not shutting down."
   echo "Starting unplug watcher..."
-  sudo systemctl start eink-power-watch.service@$(whoami) || true
+  UNIT="eink-power-watch@$(id -un).service"
+  sudo systemctl start --no-block "$UNIT" || echo "FAILED to queue start for $UNIT"
   exit 0
 fi
 

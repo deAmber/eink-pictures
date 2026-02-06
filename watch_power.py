@@ -36,11 +36,11 @@ def read_voltage(battery_script: str) -> Optional[float]:
 def main() -> int:
     base_dir = Path(__file__).resolve().parent
     cfg = load_config(base_dir / "config.json")
-    battery_script = base_dir / "check_battery.json"
-    unplugged_threshold = cfg.get("unplugged_threshold")
+    battery_script = base_dir / "check_battery.sh"
+    unplugged_threshold = cfg.get("plugged_in_threshold")
 
     misses = 0
-    while misses <= 3:
+    while misses < 3:
         v = read_voltage(battery_script)
 
         if v is not None and v <= unplugged_threshold:
@@ -50,6 +50,12 @@ def main() -> int:
 
         time.sleep(10)
 
+    ts = subprocess.check_output(["date", "-Is"], text=True).strip()
+    log_path = Path.home() / "eink_frame.log"
+    with open(log_path, "a") as file:
+        file.write(f"Power unplugged, shutting down - {ts}\n")
+
+    subprocess.run(["bash", "-lc", "cd $HOME/wittypi && ./runScript.sh"], check=False)
     subprocess.run(["sudo", "/sbin/shutdown", "-h", "now"], check=False)
     return 0
 
