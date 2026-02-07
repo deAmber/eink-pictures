@@ -61,7 +61,7 @@ def main():
                 images = [Path(__file__).resolve().parent / "default.jpg"]
 
         # Get battery status
-        script_dir = os.path.join(os.path.expanduser('~'), 'eink_pictures', 'check_battery.sh')
+        script_dir = os.path.join(os.path.expanduser('~'), 'eink-pictures', 'check_battery.sh')
         check_battery = subprocess.run([script_dir], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
         battery = check_battery.stdout.strip()
         voltage = None
@@ -84,7 +84,7 @@ def main():
         config_path.write_text(json.dumps(config, indent=2))
 
         # Show image on screen
-        show_script_dir = os.path.join(os.path.expanduser('~'), 'eink_pictures', 'run_show_image.sh')
+        show_script_dir = os.path.join(os.path.expanduser('~'), 'eink-pictures', 'run_show_image.sh')
         cmd = [show_script_dir, str(new_image)]
         if low_battery:
                 cmd += ["--battery"]

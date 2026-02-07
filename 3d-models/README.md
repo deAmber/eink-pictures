@@ -19,3 +19,11 @@ All these parts can be printed in PLA and on any bed at least 200x200mm in size,
 I printed using a .4mm nozzle with a .28mm layer height and 15% infill, but I don't see a reason you couldn't print these using a bigger nozzle.
 
 Due to the overhangs, I would recommend using support for the slides, frame_insert and wall_hanger-wall_mount.
+
+## Model images
+Wall Hanger pieces sitting inplace
+![Image of wall_hanger 3D models sitting in place](../images/wall_hanger.png)
+Frame insert
+![Image of frame_insert 3D model](../images/frame_insert.png)
+Pi support
+![Image of pi_support 3D model](../images/pi_support.png)

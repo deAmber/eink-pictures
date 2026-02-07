@@ -10,7 +10,7 @@ WITTYPIDIR="$HOME/wittypi"
 echo "---- $(date -Is) boot cycle start ----"
 
 # Run the manager to update the display
-python "$HOME"/eink_pictures/manager.py 2>&1
+python "$HOME"/eink-pictures/manager.py 2>&1
 RC=${PIPESTATUS[0]}
 echo "manager.py exit code: $RC"
 

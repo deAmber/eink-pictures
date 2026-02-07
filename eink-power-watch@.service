@@ -5,7 +5,7 @@ After=multi-user.target
 [Service]
 Type=simple
 User=%i
-ExecStart=/usr/bin/python3 /home/%i/eink_pictures/watch_power.py
+ExecStart=/usr/bin/python3 /home/%i/eink-pictures/watch_power.py
 Restart=always
 RestartSec=5
 
